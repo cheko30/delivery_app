@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:delivery_app/src/features/presentation/commons_widgets/headers_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -43,14 +44,7 @@ class WelcomePage extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 50.0),
-                child: Text(
-                  'DELIVERED FAST FOOD TO YOUR DOOR',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 45.0,
-                  ),
-                ),
+                child: headerText('DELIVERED FAST FOOD TO YOUR DOO', Colors.white, FontWeight.bold, 45.0)
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 30.0),

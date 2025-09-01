@@ -1,4 +1,6 @@
+import 'package:delivery_app/src/features/presentation/commons_widgets/alert_dialog.dart';
 import 'package:delivery_app/src/features/presentation/commons_widgets/back_button.dart';
+import 'package:delivery_app/src/features/presentation/commons_widgets/done_button.dart';
 import 'package:delivery_app/src/features/presentation/commons_widgets/headers_text.dart';
 import 'package:flutter/material.dart';
 
@@ -95,74 +97,11 @@ Widget _sendButton(BuildContext context) {
 }
 
 void _showAlert(BuildContext context) {
-  showDialog(
-    context: context,
-    barrierDismissible: true,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20.0))
-        ),
-        content: SizedBox(
-          height: 400,
-          child: Column(
-            children: [
-              Image(
-                image: AssetImage('assets/lock.png'),
-                width: 130,
-                height: 130,
-              ),
-              Container(
-                margin: EdgeInsets.all(15.0),
-                child: headerText('Your password has been reset', Theme.of(context).primaryColor, FontWeight.bold, 20.0)                
-              ) ,
-              Container(
-                margin: EdgeInsets.all(15.0),
-                child: Text(
-                  "You'll shortly recive an email with a code to setup a new password",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 15.0,
-                  ),
-                ),
-              ),
-              _doneButton(context),     
-            ],
-          ),
-        ),
-      );
-    }
-  );
-}
-
-Widget _doneButton(BuildContext context) {
-  return Container(
-    width: 350,
-    height: 45.0,
-    margin: EdgeInsets.only(top: 30.0),
-    child: ElevatedButton(
-      onPressed: () {
-        Navigator.pushNamed(context, 'login');
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromRGBO(255, 140, 0, 1.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0)
-        )
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Done',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 17.0
-            ),
-          )
-        ],
-      ),
-    ),
+  showAlertDialog(
+    context, 
+    AssetImage('assets/lock.png'), 
+    "Your password has been reset", 
+    "You'll shortly recive an email with a code to setup a new password", 
+    doneButton(context, "Done"),
   );
 }
